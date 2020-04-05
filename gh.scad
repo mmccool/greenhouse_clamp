@@ -7,9 +7,9 @@ shaft_h = 15;
 shaft_tol = 0.3;
 shaft_H = shaft_h + shaft_tol;
 
-support_r = 8 + shaft_h/cos(45);
+support_r = 2 + shaft_h/cos(45);
 support_R = support_r + 3;
-support_L = 5*support_R;
+support_L = 4*support_R;
 support_H = 2*support_r - 6;
 support_sm = 4*sm;
 
