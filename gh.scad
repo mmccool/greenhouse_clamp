@@ -1,6 +1,6 @@
 // Greenhouse support
 // Michael McCool 2020
-sm = 30;
+sm = 10;
 tol = 0.1;
 eps = 0.01;
 
@@ -72,7 +72,7 @@ module pin() {
     cylinder(r=pin_R,h=support_R+eps,$fn=sm);
 }
 
-module assembly() {
+module body() {
   difference() {
     support();
     shaft();
@@ -113,7 +113,27 @@ module clamp(t=clamp_t) {
   }
 
 }
-scale([sx,sy,sz]) {
-  assembly();
+
+// VISUALIZE
+module viz() {
+  body();
   clamp();
 }
+viz();
+
+// PRINT
+module print_body() {
+  scale([sx,sy,sz]) {
+    body();
+  }
+}
+// print_body();
+
+module print_clamp() {
+  scale([sx,sy,sz]) {
+    rotate([0,90,0])
+      clamp();
+  }
+}
+// print_clamp();
+
